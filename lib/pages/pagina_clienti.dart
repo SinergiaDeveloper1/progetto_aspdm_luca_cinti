@@ -1,4 +1,5 @@
 import 'package:app_luca_cinti/model/cliente.dart';
+import 'package:app_luca_cinti/widgets/card_cliente.dart';
 import 'package:flutter/material.dart';
 
 class PaginaClienti extends StatelessWidget {
@@ -13,7 +14,7 @@ class PaginaClienti extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      itemBuilder: (_, indice) => Text('ciao'),
+      itemBuilder: (_, indice) => CardCliente(fintaListaClienti[indice]),
       itemCount: fintaListaClienti.length,
     );
   }
