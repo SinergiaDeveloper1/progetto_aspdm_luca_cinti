@@ -1,3 +1,4 @@
+import 'package:app_luca_cinti/pages/main_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -9,13 +10,11 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Gestione Archivio',
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Gestione Archivio'),
-          centerTitle: true,
-          backgroundColor: Color.fromARGB(255, 139, 0, 0),
-        ),
-      ));
+      theme: ThemeData.light().copyWith(
+        colorScheme: ColorScheme.light(),
+        primaryColor: Color.fromARGB(255, 139, 0, 0),
+      ),
+      home: MainPage(),
+    );
   }
 }
-
