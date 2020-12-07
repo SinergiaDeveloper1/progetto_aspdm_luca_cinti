@@ -5,7 +5,6 @@ class Pratica {
   final String attivita;
   final String nominativo;
   final String ragioneSociale;
-  final String note;
 
   Pratica(
     this.idPratica,
@@ -14,6 +13,5 @@ class Pratica {
     this.attivita,
     this.nominativo,
     this.ragioneSociale,
-    this.note,
   );
 }

@@ -8,7 +8,9 @@ class CardCliente extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return Card(
+      elevation: 4,
       margin: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
       child: Padding(
         padding: EdgeInsets.all(8),
@@ -16,9 +18,11 @@ class CardCliente extends StatelessWidget {
           children: [
             Row(
               children: [
-                Icon(cliente.personaFisica
-                    ? Icons.people_alt_sharp
-                    : Icons.monetization_on_outlined, ),
+                Icon(
+                    cliente.personaFisica
+                        ? Icons.person
+                        : Icons.apartment_sharp,
+                    color: cliente.personaFisica ? Colors.blue : Colors.green),
                 const SizedBox(
                   width: 10,
                 ),
