@@ -1,6 +1,8 @@
 import 'package:app_luca_cinti/pages/pagina_clienti.dart';
 import 'package:app_luca_cinti/pages/pagina_pratiche.dart';
+import 'package:app_luca_cinti/states/stato_pagina_clienti.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class MainPage extends StatefulWidget {
   @override
@@ -26,7 +28,10 @@ class _MainPageState extends State<MainPage> {
       body: IndexedStack(
         children: [
           PaginaPratiche(),
-          PaginaClienti(),
+          ChangeNotifierProvider<StatoPaginaClienti>(
+            child: PaginaClienti(),
+            create: (_) => StatoPaginaClienti(),
+          ),
         ],
         index: _indicePagina,
       ),
