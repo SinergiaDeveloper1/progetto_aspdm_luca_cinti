@@ -1,4 +1,5 @@
 import 'package:app_luca_cinti/model/cliente.dart';
+import 'package:app_luca_cinti/repository/repository.dart';
 import 'package:app_luca_cinti/states/stato_pagina_pratiche_cliente.dart';
 import 'package:app_luca_cinti/widgets/card_pratica_cliente.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +18,10 @@ class PaginaPraticheCliente extends StatelessWidget {
         centerTitle: true,
       ),
       body: ChangeNotifierProvider(
-        create: (_) => StatoPaginaPraticheCliente(cliente.idCliente),
+        create: (_) => StatoPaginaPraticheCliente(
+          cliente.idCliente,
+          context.read<Repository>(),
+        ),
         child: PaginaPraticheClienteWidget(cliente),
       ),
     );
@@ -39,7 +43,8 @@ class _PaginaPraticheClienteWidgetState
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-      future: Future.microtask(() => context.read<StatoPaginaPraticheCliente>().getPraticheCliente()),
+      future: Future.microtask(() =>
+          context.read<StatoPaginaPraticheCliente>().getPraticheCliente()),
       builder: (_, __) => Consumer<StatoPaginaPraticheCliente>(
         builder: (context, value, child) {
           return RefreshIndicator(

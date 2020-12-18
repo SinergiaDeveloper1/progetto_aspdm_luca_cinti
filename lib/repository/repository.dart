@@ -1,8 +1,14 @@
+import 'package:app_luca_cinti/database/database.dart';
 import 'package:app_luca_cinti/model/cliente.dart';
 import 'package:app_luca_cinti/model/pratica.dart';
 
 class Repository {
-  Future<List<Cliente>> getClienti() async {
+
+  final DatabaseInterno _database;
+
+  Repository(this._database);
+
+  Future<List<Cliente>> getClienti(String filtro) async {
     return [
       Cliente(1, true, 'Luca Cinti', null, '02566130411', 'CNTLCU89L06C357Q'),
       Cliente(2, true, 'Mario Rossi', null, null, 'CIAO_CIAO:TTT'),

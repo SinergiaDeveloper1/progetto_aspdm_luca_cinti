@@ -8,10 +8,12 @@ class StatoPaginaPraticheCliente extends ChangeNotifier {
   bool staCaricando = false;
   bool errore = false;
   List<Pratica> elencoPratiche = [];
+  Repository _repository;
 
-  Repository _repository = Repository();
-
-  StatoPaginaPraticheCliente(this.idCliente);
+  StatoPaginaPraticheCliente(
+    this.idCliente,
+    this._repository,
+  );
 
   Future<void> getPraticheCliente([bool mostraCaricamento = true]) async {
     if (mostraCaricamento) {
@@ -24,7 +26,6 @@ class StatoPaginaPraticheCliente extends ChangeNotifier {
 
       //TODO, cancellare
       await Future.delayed(Duration(seconds: 3));
-
     } catch (e) {
       errore = true;
     } finally {

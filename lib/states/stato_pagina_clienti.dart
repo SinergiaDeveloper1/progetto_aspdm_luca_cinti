@@ -6,19 +6,19 @@ class StatoPaginaClienti extends ChangeNotifier {
   bool staCaricando = false;
   bool errore = false;
   List<Cliente> datiClienti = [];
+  Repository _repository;
 
-  Repository _repository = Repository();
+  StatoPaginaClienti(this._repository);
 
-  StatoPaginaClienti();
-
-  Future<void> getClienti([bool mostraCaricamento = true]) async {
+  Future<void> getClienti(
+      [bool mostraCaricamento = true, String filtro]) async {
     if (mostraCaricamento) {
       staCaricando = true;
       notifyListeners();
     }
 
     try {
-      datiClienti = await _repository.getClienti();
+      datiClienti = await _repository.getClienti(filtro);
 
       await Future.delayed(Duration(seconds: 3));
     } catch (e) {

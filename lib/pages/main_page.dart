@@ -25,7 +25,12 @@ class _MainPageState extends State<MainPage> {
       hintText: 'Cerca...',
       onSubmitted: (value) {
         //TODO: fare logica di ricerca
-        print(value);
+        if (_indicePagina == 0) {
+          //TODO, MANCA LO STATO PAGINA PRATICHE
+          //print('BANANE');
+        } else if (_indicePagina == 1) {
+          context.read<StatoPaginaClienti>().getClienti(true, value);
+        }
       },
       buildDefaultAppBar: (context) => AppBar(
         title: Text('Gestione Archivio'),
@@ -58,10 +63,7 @@ class _MainPageState extends State<MainPage> {
       body: IndexedStack(
         children: [
           PaginaPratiche(),
-          ChangeNotifierProvider<StatoPaginaClienti>(
-            child: PaginaClienti(),
-            create: (_) => StatoPaginaClienti(),
-          ),
+          PaginaClienti(),
         ],
         index: _indicePagina,
       ),

@@ -3,48 +3,54 @@ import 'package:app_luca_cinti/model/utente.dart';
 import 'package:app_luca_cinti/pages/main_page.dart';
 import 'package:app_luca_cinti/pages/pagina_login.dart';
 import 'package:app_luca_cinti/pages/pagina_pratiche_cliente.dart';
+import 'package:app_luca_cinti/repository/repository.dart';
 import 'package:app_luca_cinti/states/stato_login.dart';
+import 'package:app_luca_cinti/states/stato_pagina_clienti.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 void main() async {
-
   WidgetsFlutterBinding.ensureInitialized();
 
   final statoLogin = StatoLogin();
   await statoLogin.init();
+  final db = DatabaseInterno();
+  //await db.init();
 
-  runApp(App(statoLogin));
+  runApp(App(statoLogin, Repository(db)));
 }
 
 class App extends StatelessWidget {
   final statoLogin;
+  final repos;
 
-  App(this.statoLogin);
+  App(this.statoLogin, this.repos);
 
   @override
   Widget build(BuildContext context) {
-    return Provider(
-      create: (context) async {
-        final db = DatabaseInterno();
-        await db.init();
-        return db;
-      },
-      dispose: (context, db) => db.close(),
-      child: ChangeNotifierProvider<StatoLogin>.value(
-        value: statoLogin,
-        child: MaterialApp(
-          title: 'Gestione Archivio',
-          theme: ThemeData.light().copyWith(
-            colorScheme: ColorScheme.light(),
-            primaryColor: Color.fromARGB(255, 139, 0, 0),
-          ),
-          routes: {
-            '/': (_) => Ingresso(),
-            '/pratiche_cliente': (_) => PaginaPraticheCliente(),
-          },
-          initialRoute: '/',
+    return MultiProvider(
+      providers: [
+        Provider<Repository>.value(value: repos),
+        ChangeNotifierProvider<StatoLogin>.value(
+          value: statoLogin,
         ),
+        ChangeNotifierProvider<StatoPaginaClienti>(
+          create: (context) => StatoPaginaClienti(repos),
+        ),
+        //TODO: FARE QUELLO DELLE PRATICHE
+        // (RICORDATI DI FARE LO STATO PAGINA PRATICHE, DEL TUTTO)
+      ],
+      child: MaterialApp(
+        title: 'Gestione Archivio',
+        theme: ThemeData.light().copyWith(
+          colorScheme: ColorScheme.light(),
+          primaryColor: Color.fromARGB(255, 139, 0, 0),
+        ),
+        routes: {
+          '/': (_) => Ingresso(),
+          '/pratiche_cliente': (_) => PaginaPraticheCliente(),
+        },
+        initialRoute: '/',
       ),
     );
   }
