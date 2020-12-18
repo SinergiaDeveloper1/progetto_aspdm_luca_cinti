@@ -1,4 +1,6 @@
-class Cliente {
+import 'package:equatable/equatable.dart';
+
+class Cliente extends Equatable {
   final int idCliente;
   final bool personaFisica;
   final String nominativo;
@@ -14,4 +16,7 @@ class Cliente {
     this.partitaIva,
     this.codFiscale,
   );
+
+  @override
+  List<Object> get props => [idCliente];
 }

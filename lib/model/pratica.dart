@@ -1,4 +1,6 @@
-class Pratica {
+import 'package:equatable/equatable.dart';
+
+class Pratica extends Equatable {
   final int idPratica;
   final int anno;
   final int progressivo;
@@ -14,4 +16,7 @@ class Pratica {
     this.nominativo,
     this.ragioneSociale,
   );
+
+  @override
+  List<Object> get props => [idPratica];
 }

@@ -1,7 +1,9 @@
 import 'package:app_luca_cinti/pages/pagina_clienti.dart';
 import 'package:app_luca_cinti/pages/pagina_pratiche.dart';
+import 'package:app_luca_cinti/states/stato_login.dart';
 import 'package:app_luca_cinti/states/stato_pagina_clienti.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_search_bar/flutter_search_bar.dart';
 import 'package:provider/provider.dart';
 
 class MainPage extends StatefulWidget {
@@ -11,20 +13,48 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   int _indicePagina;
+  SearchBar searchBar;
 
   @override
   void initState() {
     super.initState();
     _indicePagina = 0;
+
+    searchBar = SearchBar(
+      setState: setState,
+      hintText: 'Cerca...',
+      onSubmitted: (value) {
+        //TODO: fare logica di ricerca
+        print(value);
+      },
+      buildDefaultAppBar: (context) => AppBar(
+        title: Text('Gestione Archivio'),
+        centerTitle: true,
+        leading: searchBar.getSearchAction(context),
+        actions: [
+          PopupMenuButton(
+            //TODO: VEDI SE VUOI CUSTOMIZZARLO
+            itemBuilder: (context) => [
+              PopupMenuItem(
+                child: Text('Logout'),
+                value: 'Logout',
+              ),
+            ],
+            onSelected: (value) {
+              if (value == 'Logout') {
+                context.read<StatoLogin>().logout();
+              }
+            },
+          )
+        ],
+      ),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Gestione Archivio'),
-        centerTitle: true,
-      ),
+      appBar: searchBar.build(context),
       body: IndexedStack(
         children: [
           PaginaPratiche(),

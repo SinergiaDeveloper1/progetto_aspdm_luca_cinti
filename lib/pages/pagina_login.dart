@@ -1,5 +1,6 @@
 import 'package:app_luca_cinti/states/stato_login.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:provider/provider.dart';
 
 class PaginaLogin extends StatefulWidget {
@@ -10,8 +11,6 @@ class PaginaLogin extends StatefulWidget {
 class _PaginaLoginState extends State<PaginaLogin> {
   @override
   Widget build(BuildContext context) {
-    debugPrint('Building $runtimeType');
-
     return Scaffold(
       appBar: AppBar(
         title: Text('Login'),
@@ -36,49 +35,58 @@ class _PaginaLoginState extends State<PaginaLogin> {
                     TextFormField(
                       controller: _ctrlUsername,
                       decoration: InputDecoration(
-                          icon: Icon(Icons.person),
-                          labelText: 'Username'
-                      ),
+                          icon: Icon(Icons.person), labelText: 'Username'),
                       validator: (input) {
-                        return (input.contains('@') ? null : 'Immetti un indirizzo e-mail');
+                        return (input.isNotEmpty
+                            ? null
+                            : 'Inserire lo username');
                       },
                       autovalidateMode: AutovalidateMode.disabled,
                     ),
                     TextFormField(
                       controller: _ctrlPassword,
                       decoration: InputDecoration(
-                          icon: Icon(Icons.lock),
-                          labelText: 'Password'
-                      ),
+                          icon: Icon(Icons.lock), labelText: 'Password'),
+                      validator: (input) {
+                        return (input.isNotEmpty
+                            ? null
+                            : 'Inserire la password');
+                      },
                       obscureText: true,
                     ),
                     Text(''),
                     Builder(
                       builder: (context) {
-                        return ElevatedButton(
-                          onPressed: () async {
-                            if(Form.of(context).validate()) {
-                              context.read<StatoLogin>().login(
+                        return Consumer<StatoLogin>(
+                            builder: (context, value, child) {
+                          if (value.errore) {
+                            SchedulerBinding.instance.addPostFrameCallback((_) {
+                              Scaffold.of(context).showSnackBar(
+                                SnackBar(
+                                  content: Text('Username o Password errate!'),
+                                ),
+                              );
+                            });
+                          }
+                          return ElevatedButton(
+                            onPressed: () async {
+                              if (Form.of(context).validate()) {
+                                context.read<StatoLogin>().login(
                                       _ctrlUsername.value.text,
                                       _ctrlPassword.value.text,
-                              );
-
-                              /*final prefs = await SharedPreferences.getInstance();
-                              await prefs.setString('myLogin', _ctrlUsername.value.text);
-
-                              final secStorage = FlutterSecureStorage();
-                              await secStorage.write(key: 'myPassword', value: _ctrlPassword.value.text);*/
-                            }
-                          },
-                          child: Text('Login'),
-                        );
+                                    );
+                              }
+                            },
+                            child: Text('Login'),
+                          );
+                        });
                       },
                     )
                   ],
                 ),
               ),
             ),
-          )
+          ),
         ],
       ),
     );
@@ -91,22 +99,7 @@ class _PaginaLoginState extends State<PaginaLogin> {
     super.initState();
     _ctrlUsername = TextEditingController();
     _ctrlPassword = TextEditingController();
-
-    //initStateAsync();
   }
-
-  /*Future initStateAsync() async {
-    final prefs = await SharedPreferences.getInstance();
-    if(prefs.containsKey('myLogin')) {
-      _ctrlUsername.text = prefs.getString('myLogin');
-    }
-
-    final secStorage = FlutterSecureStorage();
-    final prevPassword = await secStorage.read(key: 'myPassword');
-    if(prevPassword != null) {
-      _ctrlPassword.text = prevPassword;
-    }
-  }*/
 
   @override
   void dispose() {

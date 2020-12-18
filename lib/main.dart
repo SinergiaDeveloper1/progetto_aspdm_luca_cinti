@@ -7,11 +7,21 @@ import 'package:app_luca_cinti/states/stato_login.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-void main() {
-  runApp(App());
+void main() async {
+
+  WidgetsFlutterBinding.ensureInitialized();
+
+  final statoLogin = StatoLogin();
+  await statoLogin.init();
+
+  runApp(App(statoLogin));
 }
 
 class App extends StatelessWidget {
+  final statoLogin;
+
+  App(this.statoLogin);
+
   @override
   Widget build(BuildContext context) {
     return Provider(
@@ -21,8 +31,8 @@ class App extends StatelessWidget {
         return db;
       },
       dispose: (context, db) => db.close(),
-      child: ChangeNotifierProvider(
-        create: (context) => StatoLogin(),
+      child: ChangeNotifierProvider<StatoLogin>.value(
+        value: statoLogin,
         child: MaterialApp(
           title: 'Gestione Archivio',
           theme: ThemeData.light().copyWith(

@@ -37,59 +37,54 @@ class PaginaPraticheClienteWidget extends StatefulWidget {
 class _PaginaPraticheClienteWidgetState
     extends State<PaginaPraticheClienteWidget> {
   @override
-  void initState() {
-    SchedulerBinding.instance.addPostFrameCallback((_) {
-      context.read<StatoPaginaPraticheCliente>().getPraticheCliente();
-    });
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
-    return Consumer<StatoPaginaPraticheCliente>(
-      builder: (context, value, child) {
-        return RefreshIndicator(
-          child: LayoutBuilder(
-            builder: (context, constraints) {
-              if (value.errore) {
-                SchedulerBinding.instance.addPostFrameCallback((_) {
-                  Scaffold.of(context).showSnackBar(
-                      SnackBar(content: Text('Qualcosa è andato storto!')));
-                });
-              }
-              if (value.elencoPratiche.isEmpty) {
-                return SingleChildScrollView(
-                  child: ConstrainedBox(
-                    child: Center(
-                      child: Padding(
-                        padding: const EdgeInsets.all(16),
-                        child: Text(
-                          'Non sono presenti pratiche per il cliente ${widget.cliente.nominativo}',
-                          style: Theme.of(context).textTheme.headline6,
-                          textAlign: TextAlign.center,
+    return FutureBuilder(
+      future: Future.microtask(() => context.read<StatoPaginaPraticheCliente>().getPraticheCliente()),
+      builder: (_, __) => Consumer<StatoPaginaPraticheCliente>(
+        builder: (context, value, child) {
+          return RefreshIndicator(
+            child: LayoutBuilder(
+              builder: (context, constraints) {
+                if (value.errore) {
+                  SchedulerBinding.instance.addPostFrameCallback((_) {
+                    Scaffold.of(context).showSnackBar(
+                        SnackBar(content: Text('Qualcosa è andato storto!')));
+                  });
+                }
+                if (value.elencoPratiche.isEmpty) {
+                  return SingleChildScrollView(
+                    child: ConstrainedBox(
+                      child: Center(
+                        child: Padding(
+                          padding: const EdgeInsets.all(16),
+                          child: Text(
+                            'Non sono presenti pratiche per il cliente ${widget.cliente.nominativo}',
+                            style: Theme.of(context).textTheme.headline6,
+                            textAlign: TextAlign.center,
+                          ),
                         ),
                       ),
+                      constraints:
+                          BoxConstraints(minHeight: constraints.maxHeight),
                     ),
-                    constraints:
-                        BoxConstraints(minHeight: constraints.maxHeight),
+                    physics: AlwaysScrollableScrollPhysics(),
+                  );
+                }
+                return LoadingOverlay(
+                  isLoading: value.staCaricando,
+                  child: ListView.builder(
+                    padding: EdgeInsets.symmetric(vertical: 10),
+                    itemBuilder: (_, indice) =>
+                        CardPraticaCliente(value.elencoPratiche[indice]),
+                    itemCount: value.elencoPratiche.length,
                   ),
-                  physics: AlwaysScrollableScrollPhysics(),
                 );
-              }
-              return LoadingOverlay(
-                isLoading: value.staCaricando,
-                child: ListView.builder(
-                  padding: EdgeInsets.symmetric(vertical: 10),
-                  itemBuilder: (_, indice) =>
-                      CardPraticaCliente(value.elencoPratiche[indice]),
-                  itemCount: value.elencoPratiche.length,
-                ),
-              );
-            },
-          ),
-          onRefresh: () => value.getPraticheCliente(false),
-        );
-      },
+              },
+            ),
+            onRefresh: () => value.getPraticheCliente(false),
+          );
+        },
+      ),
     );
   }
 }
