@@ -2,22 +2,33 @@ import 'package:app_luca_cinti/database/database.dart';
 import 'package:app_luca_cinti/model/cliente.dart';
 import 'package:app_luca_cinti/model/pratica.dart';
 
-class Repository {
+extension StringContains on String {
+  bool containsCaseIns(String daComparare) {
+    return this.toLowerCase().contains(daComparare?.toLowerCase());
+  }
+}
 
+class Repository {
   final DatabaseInterno _database;
 
   Repository(this._database);
 
   Future<List<Cliente>> getClienti(String filtro) async {
-    return [
-      Cliente(1, true, 'Luca Cinti', null, '02566130411', 'CNTLCU89L06C357Q'),
-      Cliente(2, true, 'Mario Rossi', null, null, 'CIAO_CIAO:TTT'),
-      Cliente(3, false, '', 'Azienda a caso', '02566130444', 'prova prova'),
-      Cliente(4, true, 'Luca CIAO', null, null, null),
-    ];
+    final clienti = await _database.getClienti();
+
+    if (filtro != null && filtro.isNotEmpty) {
+      return clienti
+          .where((e) =>
+              e.nominativo.containsCaseIns(filtro.trim()) ||
+              (e.codFiscale?.containsCaseIns(filtro.trim()) ?? false) ||
+              (e.partitaIva?.containsCaseIns(filtro.trim()) ?? false))
+          .toList();
+    } else {
+      return clienti;
+    }
   }
 
-  Future<List<Pratica>> getPratiche() async {
+  Future<List<Pratica>> getPratiche(String filtro) async {
     return [
       Pratica(10, 2020, 1, 'Dichiarazione redditi', 'Luca Cinti', null),
       Pratica(1, 2019, 1, 'Dichiarazione redditi', 'Luca Cinti', null),

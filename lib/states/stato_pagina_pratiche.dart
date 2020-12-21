@@ -1,16 +1,16 @@
-import 'package:app_luca_cinti/model/cliente.dart';
+import 'package:app_luca_cinti/model/pratica.dart';
 import 'package:app_luca_cinti/repository/repository.dart';
 import 'package:flutter/material.dart';
 
-class StatoPaginaClienti extends ChangeNotifier {
+class StatoPaginaPratiche extends ChangeNotifier {
   bool staCaricando = false;
   bool errore = false;
-  List<Cliente> datiClienti = [];
+  List<Pratica> datiPratiche = [];
   Repository _repository;
 
-  StatoPaginaClienti(this._repository);
+  StatoPaginaPratiche(this._repository);
 
-  Future<void> getClienti(
+  Future<void> getPratiche(
       [bool mostraCaricamento = true, String filtro]) async {
     if (mostraCaricamento) {
       staCaricando = true;
@@ -18,10 +18,10 @@ class StatoPaginaClienti extends ChangeNotifier {
     }
 
     try {
-      datiClienti = await _repository.getClienti(filtro);
-      //await Future.delayed(Duration(seconds: 3));
+      datiPratiche = await _repository.getPratiche(filtro);
+
+      await Future.delayed(Duration(seconds: 3));
     } catch (e) {
-      print(e);
       errore = true;
     } finally {
       staCaricando = false;

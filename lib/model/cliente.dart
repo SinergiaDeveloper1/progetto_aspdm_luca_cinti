@@ -19,4 +19,16 @@ class Cliente extends Equatable {
 
   @override
   List<Object> get props => [idCliente];
+
+  //TODO SISTEMARE CON IL MODELLO DATI AGGIORNATO
+  factory Cliente.daMappa(Map<String, dynamic> mappa) => Cliente(
+      mappa['ID'],
+      true,
+      '${mappa['NOME']} ${mappa['COGNOME']}',
+      null,
+      mappa['P_IVA'],
+      mappa['COD_FISCALE']);
+
+//TODO FARE ANCHE CON LE PRATICHE
+
 }

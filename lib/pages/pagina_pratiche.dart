@@ -15,6 +15,8 @@ class PaginaPratiche extends StatelessWidget {
     Pratica(13, 2020, 4, 'Ciao ciao ', 'Un altro cliente', null),
   ];
 
+  //TODO, COLLEGARE STATO PAGINA PRATICHE, UNIFORMARE ALLA PAGINA DEI CLIENTI
+
   @override
   Widget build(BuildContext context) {
     return ListView.builder(

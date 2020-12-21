@@ -6,6 +6,7 @@ import 'package:app_luca_cinti/pages/pagina_pratiche_cliente.dart';
 import 'package:app_luca_cinti/repository/repository.dart';
 import 'package:app_luca_cinti/states/stato_login.dart';
 import 'package:app_luca_cinti/states/stato_pagina_clienti.dart';
+import 'package:app_luca_cinti/states/stato_pagina_pratiche.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -15,7 +16,7 @@ void main() async {
   final statoLogin = StatoLogin();
   await statoLogin.init();
   final db = DatabaseInterno();
-  //await db.init();
+  await db.init();
 
   runApp(App(statoLogin, Repository(db)));
 }
@@ -37,8 +38,9 @@ class App extends StatelessWidget {
         ChangeNotifierProvider<StatoPaginaClienti>(
           create: (context) => StatoPaginaClienti(repos),
         ),
-        //TODO: FARE QUELLO DELLE PRATICHE
-        // (RICORDATI DI FARE LO STATO PAGINA PRATICHE, DEL TUTTO)
+        ChangeNotifierProvider<StatoPaginaPratiche>(
+          create: (context) => StatoPaginaPratiche(repos),
+        ),
       ],
       child: MaterialApp(
         title: 'Gestione Archivio',
