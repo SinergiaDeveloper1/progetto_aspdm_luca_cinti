@@ -47,9 +47,7 @@ class CardPraticaCliente extends StatelessWidget {
                 const SizedBox(
                   width: 8,
                 ),
-                pratica.nominativo != null
-                    ? Text(pratica.nominativo)
-                    : Text(pratica.ragioneSociale),
+                Text(pratica.nominativo),
               ],
             )
           ],

@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:app_luca_cinti/model/cliente.dart';
+import 'package:app_luca_cinti/model/pratica.dart';
 import 'package:flutter/services.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
@@ -47,8 +48,14 @@ class DatabaseInterno {
   }
 
   Future<List<Cliente>> getClienti() async {
-    final mappaClienti = await _db.rawQuery('SELECT * FROM AG_PERSONE_FISICHE');
+    final mappaClienti = await _db.rawQuery('SELECT * FROM FAKE_APP_TABELLA_CLIENTI ORDER BY NOMINATIVO ASC');
 
     return mappaClienti.map((e) => Cliente.daMappa(e)).toList();
+  }
+
+  Future<List<Pratica>> getPratiche() async {
+    final mappaPratiche = await _db.rawQuery('SELECT * FROM FAKE_APP_TABELLA_PRATICHE ORDER BY ANNO DESC');
+
+    return mappaPratiche.map((e) => Pratica.daMappa(e)).toList();
   }
 }

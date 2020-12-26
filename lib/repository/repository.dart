@@ -29,26 +29,38 @@ class Repository {
   }
 
   Future<List<Pratica>> getPratiche(String filtro) async {
-    return [
-      Pratica(10, 2020, 1, 'Dichiarazione redditi', 'Luca Cinti', null),
-      Pratica(1, 2019, 1, 'Dichiarazione redditi', 'Luca Cinti', null),
-      Pratica(11, 2020, 2, 'Test, prova prova', 'Cormorano', null),
-      Pratica(12, 2020, 3, 'ciao ciao ciao', null, 'pellicano ASD'),
-      Pratica(2, 2019, 2, 'Dichiarazione IVA', 'Luca Cinti', null),
-      Pratica(3, 2019, 3, 'Varie', null, 'Società truffe'),
-      Pratica(4, 2019, 4, 'Contabilità', 'Luca Cinti', null),
-      Pratica(5, 2019, 5, 'Test prova', null, 'FIAT SPA'),
-      Pratica(13, 2020, 4, 'Ciao ciao ', 'Un altro cliente', null),
-    ];
+    final pratiche = await _database.getPratiche();
+
+    if (filtro != null && filtro.isNotEmpty) {
+      return pratiche
+          .where((e) =>
+      e.nominativo.containsCaseIns(filtro.trim()) ||
+          (e.anno.toString().contains(filtro.trim()) ?? false) ||
+          (e.attivita?.containsCaseIns(filtro.trim()) ?? false))
+          .toList();
+    } else {
+      return pratiche;
+    }
+
+    /*return [
+      Pratica(10, true, 2020, 1, 'Dichiarazione redditi', 'Luca Cinti'),
+      Pratica(1, true, 2019, 1, 'Dichiarazione redditi', 'Luca Cinti'),
+      Pratica(11, false, 2020, 2, 'Test, prova prova', 'Cormorano'),
+      Pratica(12, false, 2020, 3, 'ciao ciao ciao', 'pellicano ASD'),
+      Pratica(2, true, 2019, 2, 'Dichiarazione IVA', 'Luca Cinti'),
+      Pratica(3, false, 2019, 3, 'Varie', 'Società truffe'),
+      Pratica(4, true, 2019, 4, 'Contabilità', 'Luca Cinti'),
+      Pratica(5, false, 2019, 5, 'Test prova', 'FIAT SPA'),
+      Pratica(13, true, 2020, 4, 'Ciao ciao ', 'Un altro cliente'),
+    ];*/
   }
 
   Future<List<Pratica>> getPraticheCliente(int idCliente) async {
     return [
-      Pratica(10, 2020, 1, 'Dichiarazione redditi', 'Luca Cinti', null),
-      Pratica(1, 2019, 1, 'Dichiarazione redditi', 'Luca Cinti', null),
-      Pratica(2, 2019, 2, 'Dichiarazione IVA', 'Luca Cinti', null),
-      Pratica(3, 2019, 3, 'Varie', null, 'Società truffe'),
-      Pratica(13, 2020, 4, 'Ciao ciao ', 'Un altro cliente', null),
+      Pratica(10, true, 2020, 1, 'Dichiarazione redditi', 'Luca Cinti'),
+      Pratica(1, true, 2019, 1, 'Dichiarazione redditi', 'Luca Cinti'),
+      Pratica(2, true, 2019, 2, 'Dichiarazione IVA', 'Luca Cinti'),
+      Pratica(4, true, 2019, 4, 'Contabilità', 'Luca Cinti'),
     ];
   }
 }

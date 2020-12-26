@@ -38,18 +38,16 @@ class CardPratica extends StatelessWidget {
             Row(
               children: [
                 Icon(
-                    pratica.nominativo != null
+                    pratica.flgPF
                         ? Icons.person
                         : Icons.apartment_sharp,
-                    color: pratica.nominativo != null
+                    color: pratica.flgPF
                         ? Colors.blue
                         : Colors.green),
                 const SizedBox(
                   width: 8,
                 ),
-                pratica.nominativo != null
-                    ? Text(pratica.nominativo)
-                    : Text(pratica.ragioneSociale),
+                Text(pratica.nominativo),
               ],
             )
           ],

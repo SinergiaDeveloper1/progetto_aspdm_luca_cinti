@@ -25,17 +25,15 @@ class CardCliente extends StatelessWidget {
               Row(
                 children: [
                   Icon(
-                      cliente.personaFisica
+                      cliente.flgPF
                           ? Icons.person
                           : Icons.apartment_sharp,
                       color:
-                          cliente.personaFisica ? Colors.blue : Colors.green),
+                          cliente.flgPF ? Colors.blue : Colors.green),
                   const SizedBox(
                     width: 10,
                   ),
-                  Text(cliente.personaFisica
-                      ? cliente.nominativo
-                      : cliente.ragioneSociale)
+                  Text(cliente.nominativo)
                 ],
               ),
               const SizedBox(

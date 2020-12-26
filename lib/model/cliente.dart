@@ -2,17 +2,15 @@ import 'package:equatable/equatable.dart';
 
 class Cliente extends Equatable {
   final int idCliente;
-  final bool personaFisica;
+  final bool flgPF;
   final String nominativo;
-  final String ragioneSociale;
   final String partitaIva;
   final String codFiscale;
 
   Cliente(
     this.idCliente,
-    this.personaFisica,
+    this.flgPF,
     this.nominativo,
-    this.ragioneSociale,
     this.partitaIva,
     this.codFiscale,
   );
@@ -20,15 +18,11 @@ class Cliente extends Equatable {
   @override
   List<Object> get props => [idCliente];
 
-  //TODO SISTEMARE CON IL MODELLO DATI AGGIORNATO
   factory Cliente.daMappa(Map<String, dynamic> mappa) => Cliente(
       mappa['ID'],
-      true,
-      '${mappa['NOME']} ${mappa['COGNOME']}',
-      null,
+      mappa['FLG_PF'] == 1 ? true : false,
+      mappa['NOMINATIVO'],
       mappa['P_IVA'],
       mappa['COD_FISCALE']);
-
-//TODO FARE ANCHE CON LE PRATICHE
 
 }

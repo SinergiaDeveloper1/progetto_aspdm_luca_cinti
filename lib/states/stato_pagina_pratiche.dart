@@ -19,8 +19,7 @@ class StatoPaginaPratiche extends ChangeNotifier {
 
     try {
       datiPratiche = await _repository.getPratiche(filtro);
-
-      await Future.delayed(Duration(seconds: 3));
+      //await Future.delayed(Duration(seconds: 3));
     } catch (e) {
       errore = true;
     } finally {
