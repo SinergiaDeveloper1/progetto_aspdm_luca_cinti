@@ -48,13 +48,17 @@ class DatabaseInterno {
   }
 
   Future<List<Cliente>> getClienti() async {
-    final mappaClienti = await _db.rawQuery('SELECT * FROM FAKE_APP_TABELLA_CLIENTI ORDER BY NOMINATIVO ASC');
+    final mappaClienti = await _db.rawQuery(
+        'SELECT * FROM FAKE_APP_TABELLA_CLIENTI ORDER BY NOMINATIVO ASC');
 
     return mappaClienti.map((e) => Cliente.daMappa(e)).toList();
   }
 
-  Future<List<Pratica>> getPratiche() async {
-    final mappaPratiche = await _db.rawQuery('SELECT * FROM FAKE_APP_TABELLA_PRATICHE ORDER BY ANNO DESC');
+  Future<List<Pratica>> getPratiche([String nominativo = '']) async {
+    final String filtroQuery =
+        nominativo == '' ? '' : 'WHERE NOMINATIVO = "${nominativo}"';
+    final mappaPratiche = await _db.rawQuery(
+        'SELECT * FROM FAKE_APP_TABELLA_PRATICHE ${filtroQuery} ORDER BY ANNO DESC');
 
     return mappaPratiche.map((e) => Pratica.daMappa(e)).toList();
   }

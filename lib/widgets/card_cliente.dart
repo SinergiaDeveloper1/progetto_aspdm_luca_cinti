@@ -36,7 +36,7 @@ class CardCliente extends StatelessWidget {
                   Text(cliente.nominativo)
                 ],
               ),
-              const SizedBox(
+              /*const SizedBox(
                 height: 8,
               ),
               Row(
@@ -51,7 +51,7 @@ class CardCliente extends StatelessWidget {
                     ),
                   if (cliente.codFiscale != null) Text(cliente.codFiscale),
                 ],
-              )
+              )*/
             ],
           ),
         ),

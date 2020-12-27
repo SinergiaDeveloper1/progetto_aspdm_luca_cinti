@@ -41,26 +41,17 @@ class Repository {
     } else {
       return pratiche;
     }
+  }
+
+  Future<List<Pratica>> getPraticheCliente(String nominativo) async {
+    return await _database.getPratiche(nominativo);
+
 
     /*return [
       Pratica(10, true, 2020, 1, 'Dichiarazione redditi', 'Luca Cinti'),
       Pratica(1, true, 2019, 1, 'Dichiarazione redditi', 'Luca Cinti'),
-      Pratica(11, false, 2020, 2, 'Test, prova prova', 'Cormorano'),
-      Pratica(12, false, 2020, 3, 'ciao ciao ciao', 'pellicano ASD'),
       Pratica(2, true, 2019, 2, 'Dichiarazione IVA', 'Luca Cinti'),
-      Pratica(3, false, 2019, 3, 'Varie', 'Società truffe'),
       Pratica(4, true, 2019, 4, 'Contabilità', 'Luca Cinti'),
-      Pratica(5, false, 2019, 5, 'Test prova', 'FIAT SPA'),
-      Pratica(13, true, 2020, 4, 'Ciao ciao ', 'Un altro cliente'),
     ];*/
-  }
-
-  Future<List<Pratica>> getPraticheCliente(int idCliente) async {
-    return [
-      Pratica(10, true, 2020, 1, 'Dichiarazione redditi', 'Luca Cinti'),
-      Pratica(1, true, 2019, 1, 'Dichiarazione redditi', 'Luca Cinti'),
-      Pratica(2, true, 2019, 2, 'Dichiarazione IVA', 'Luca Cinti'),
-      Pratica(4, true, 2019, 4, 'Contabilità', 'Luca Cinti'),
-    ];
   }
 }

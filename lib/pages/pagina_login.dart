@@ -18,11 +18,11 @@ class _PaginaLoginState extends State<PaginaLogin> {
       body: Stack(
         fit: StackFit.expand,
         children: [
-          /*Image.asset(
-            'login_background.jpg',
+          Image.asset(
+            'assets/sfondoLogin.png',
             fit: BoxFit.cover,
             alignment: Alignment.centerLeft,
-          ),*/ //TODO
+          ),
           Center(
             child: Form(
               child: Container(

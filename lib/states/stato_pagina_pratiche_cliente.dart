@@ -3,7 +3,7 @@ import 'package:app_luca_cinti/repository/repository.dart';
 import 'package:flutter/material.dart';
 
 class StatoPaginaPraticheCliente extends ChangeNotifier {
-  final int idCliente;
+  final String nominativo;
 
   bool staCaricando = false;
   bool errore = false;
@@ -11,7 +11,7 @@ class StatoPaginaPraticheCliente extends ChangeNotifier {
   Repository _repository;
 
   StatoPaginaPraticheCliente(
-    this.idCliente,
+    this.nominativo,
     this._repository,
   );
 
@@ -22,10 +22,9 @@ class StatoPaginaPraticheCliente extends ChangeNotifier {
     }
 
     try {
-      elencoPratiche = await _repository.getPraticheCliente(idCliente);
+      elencoPratiche = await _repository.getPraticheCliente(nominativo);
 
-      //TODO, cancellare
-      await Future.delayed(Duration(seconds: 3));
+      //await Future.delayed(Duration(seconds: 3));
     } catch (e) {
       errore = true;
     } finally {
