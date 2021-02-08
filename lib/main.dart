@@ -7,6 +7,7 @@ import 'package:app_luca_cinti/repository/repository.dart';
 import 'package:app_luca_cinti/states/stato_login.dart';
 import 'package:app_luca_cinti/states/stato_pagina_clienti.dart';
 import 'package:app_luca_cinti/states/stato_pagina_pratiche.dart';
+import 'package:app_luca_cinti/states/stato_refresh.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -40,6 +41,9 @@ class App extends StatelessWidget {
         ),
         ChangeNotifierProvider<StatoPaginaPratiche>(
           create: (context) => StatoPaginaPratiche(repos),
+        ),
+        ChangeNotifierProvider<StatoRefresh>(
+          create: (context) => StatoRefresh(repos),
         ),
       ],
       child: MaterialApp(

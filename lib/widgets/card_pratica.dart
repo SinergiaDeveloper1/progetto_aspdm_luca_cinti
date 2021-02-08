@@ -9,7 +9,7 @@ class CardPratica extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      elevation: 4,
+      elevation: 5,
       margin: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
       child: Padding(
         padding: EdgeInsets.all(8),

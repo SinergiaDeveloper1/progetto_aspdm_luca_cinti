@@ -57,9 +57,15 @@ class DatabaseInterno {
   Future<List<Pratica>> getPratiche([String nominativo = '']) async {
     final String filtroQuery =
         nominativo == '' ? '' : 'WHERE NOMINATIVO = "${nominativo}"';
+
     final mappaPratiche = await _db.rawQuery(
         'SELECT * FROM FAKE_APP_TABELLA_PRATICHE ${filtroQuery} ORDER BY ANNO DESC');
 
     return mappaPratiche.map((e) => Pratica.daMappa(e)).toList();
   }
+
+  Future<void> aggiornaDB(List<Cliente> clienti, List<Pratica> pratiche) {
+
+  }
+
 }

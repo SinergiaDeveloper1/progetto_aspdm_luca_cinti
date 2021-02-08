@@ -3,6 +3,7 @@ import 'package:app_luca_cinti/pages/pagina_pratiche.dart';
 import 'package:app_luca_cinti/states/stato_login.dart';
 import 'package:app_luca_cinti/states/stato_pagina_clienti.dart';
 import 'package:app_luca_cinti/states/stato_pagina_pratiche.dart';
+import 'package:app_luca_cinti/states/stato_refresh.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_search_bar/flutter_search_bar.dart';
 import 'package:provider/provider.dart';
@@ -65,8 +66,11 @@ class _MainPageState extends State<MainPage> {
               },
             ),
           PopupMenuButton(
-            //TODO: VEDI SE VUOI CUSTOMIZZARLO
             itemBuilder: (context) => [
+              PopupMenuItem(
+                child: Text('Aggiorna dati'),
+                value: 'Aggiorna',
+              ),
               PopupMenuItem(
                 child: Text('Logout'),
                 value: 'Logout',
@@ -76,8 +80,11 @@ class _MainPageState extends State<MainPage> {
               if (value == 'Logout') {
                 context.read<StatoLogin>().logout();
               }
+              else if (value == 'Aggiorna') {
+                context.read<StatoRefresh>().aggiornaDB();
+              }
             },
-          )
+          ),
         ],
       ),
     );
@@ -103,7 +110,7 @@ class _MainPageState extends State<MainPage> {
         currentIndex: _indicePagina,
         items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.search_sharp),
+            icon: Icon(Icons.list_alt_sharp),
             label: 'Storico Pratiche',
           ),
           BottomNavigationBarItem(
@@ -111,6 +118,9 @@ class _MainPageState extends State<MainPage> {
             label: 'Anagrafica clienti',
           ),
         ],
+        //type: BottomNavigationBarType.shifting,
+        backgroundColor: Color.fromARGB(255, 139, 0, 0),
+        fixedColor: Colors.white,
       ),
     );
   }

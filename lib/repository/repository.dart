@@ -1,6 +1,8 @@
 import 'package:app_luca_cinti/database/database.dart';
 import 'package:app_luca_cinti/model/cliente.dart';
 import 'package:app_luca_cinti/model/pratica.dart';
+import 'package:flutter/material.dart';
+import 'package:app_luca_cinti/database/api_remote.dart';
 
 extension StringContains on String {
   bool containsCaseIns(String daComparare) {
@@ -34,9 +36,9 @@ class Repository {
     if (filtro != null && filtro.isNotEmpty) {
       return pratiche
           .where((e) =>
-      e.nominativo.containsCaseIns(filtro.trim()) ||
-          (e.anno.toString().contains(filtro.trim()) ?? false) ||
-          (e.attivita?.containsCaseIns(filtro.trim()) ?? false))
+              e.nominativo.containsCaseIns(filtro.trim()) ||
+              (e.anno.toString().contains(filtro.trim()) ?? false) ||
+              (e.attivita?.containsCaseIns(filtro.trim()) ?? false))
           .toList();
     } else {
       return pratiche;
@@ -45,13 +47,11 @@ class Repository {
 
   Future<List<Pratica>> getPraticheCliente(String nominativo) async {
     return await _database.getPratiche(nominativo);
+  }
 
-
-    /*return [
-      Pratica(10, true, 2020, 1, 'Dichiarazione redditi', 'Luca Cinti'),
-      Pratica(1, true, 2019, 1, 'Dichiarazione redditi', 'Luca Cinti'),
-      Pratica(2, true, 2019, 2, 'Dichiarazione IVA', 'Luca Cinti'),
-      Pratica(4, true, 2019, 4, 'Contabilità', 'Luca Cinti'),
-    ];*/
+  Future<void> aggiornaDB() async {
+    //TODO
+    final clienti = await getClientiAPI();
+    await _database.aggiornaDB(clienti);
   }
 }

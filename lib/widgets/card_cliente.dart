@@ -1,4 +1,5 @@
 import 'package:app_luca_cinti/model/cliente.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class CardCliente extends StatelessWidget {
@@ -9,7 +10,7 @@ class CardCliente extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      elevation: 4,
+      elevation: 5,
       margin: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
       child: InkWell(
         onTap: () {
@@ -19,24 +20,37 @@ class CardCliente extends StatelessWidget {
           );
         },
         child: Padding(
-          padding: EdgeInsets.all(8),
-          child: Column(
+          padding: EdgeInsets.all(5),
+          child: Container(
+            child: ListTile(
+              leading: Icon(
+                  cliente.flgPF ? Icons.person : Icons.apartment_sharp,
+                  color: cliente.flgPF ? Colors.blue : Colors.green),
+              title: Text(
+                cliente.nominativo,
+                style: TextStyle(fontSize: 15),
+              ),
+              trailing: Icon(Icons.arrow_forward),
+            ),
+          ),
+
+          /*child: Column(
             children: [
               Row(
                 children: [
-                  Icon(
-                      cliente.flgPF
-                          ? Icons.person
-                          : Icons.apartment_sharp,
-                      color:
-                          cliente.flgPF ? Colors.blue : Colors.green),
+                  Icon(cliente.flgPF ? Icons.person : Icons.apartment_sharp,
+                      color: cliente.flgPF ? Colors.blue : Colors.green),
                   const SizedBox(
                     width: 10,
                   ),
-                  Text(cliente.nominativo)
+                  Text(
+                    cliente.nominativo,
+                    style: TextStyle(fontSize: 15),
+                  )
                 ],
-              ),
-              /*const SizedBox(
+              ),*/
+
+          /*const SizedBox(
                 height: 8,
               ),
               Row(
@@ -52,8 +66,6 @@ class CardCliente extends StatelessWidget {
                   if (cliente.codFiscale != null) Text(cliente.codFiscale),
                 ],
               )*/
-            ],
-          ),
         ),
       ),
     );
