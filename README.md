@@ -79,7 +79,7 @@ Ogniqualvolta verranno inseriti dei nuovi record, o effettuate modifiche ai dati
 
 A sinistra possiamo vedere la ricezione della notifica, mentre a destra l'interfaccia durante l'aggiornamento dei dati.
 
-È possibile ovviamente utilizzare l'applicazione sia in portrait che in landscape mode: le interfacce sono modificate per meglio adattarsi alle due modalità:
+È possibile ovviamente utilizzare l'applicazione sia in *portrait* che in *landscape mode*: le interfacce sono modificate per meglio adattarsi alle due modalità:
 
 <p align="center"><img src="screenshot/login_Oriz.png" alt="login orizzontale" width=65% />
 <p align="center"><img src="screenshot/paginaPratiche_Oriz.png" alt="pagina pratiche orizzontale" width=65% />
@@ -91,4 +91,20 @@ Il modello dati è (molto grossolanamente) riportato nell'immagine che segue, do
 
 <p align="center"><img src="screenshot/modelloDati.png" alt="modello dati" width=70% />
  
-Si noti inoltre come ho scelto di non 
+Come nota a margine facciamo osservare che è stato scelto di non permettere modifiche ai dati lato applicazione mobile, in quanto esse sono di esclusivo appannaggio del personale ammistrativo dell'ufficio.
+
+# Tecnologia
+
+Ad integrazione del progetto sono state utilizzate le seguenti librerie aggiuntive, integrate dal pubGet di Flutter:
+
+  * provider: ^4.3.2+3
+  
+  
+  * loading_overlay: ^0.2.1
+  * sqflite: ^1.3.2+1
+  * shared_preferences: ^0.5.12+4
+  * equatable: ^1.2.5
+  * flutter_search_bar: ^2.1.0
+  * http: ^0.12.2
+  * firebase_core: ^0.7.0
+  * firebase_messaging: ^8.0.0-dev.14
