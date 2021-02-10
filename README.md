@@ -1,12 +1,12 @@
-<p align="center"><img src="assets/sfondoLogin.png" alt="Gestione Archivio Logo" width=320/></p>
+<p align="center"><img src="assets/sfondoLogin.png" alt="Gestione Archivio Logo" width=100% height=120/></p>
 
-Luca Cinti, 305772
+**Luca Cinti, 305772**
 
 # Gestione Archivio
 
 **Presentazione della problematica e scopo dell'applicazione**
 
-Quest'applicazione vuole rispondere ad un problema che mi è capitato più volte di affrontare, negli studi dei commercialisti per i quali ho lavorato come consulente: *la gestione dell'archivio delle pratiche*.
+Quest'applicazione vuole rispondere ad un problema, che mi è capitato più volte di affrontare, degli studi dei commercialisti per i quali ho lavorato come consulente: *la gestione dell'archivio delle pratiche*.
 Ogni commercialista è legalmente tenuto a mantenere per almeno dieci anni uno storico dei lavori svolti per i propri clienti; va da sé come questo comporti l'accumulo di una grande mole di documenti cartacei, che necessariamente ne richiede una catalogazione oculata, nell'ottica di ottimizzare i tempi di ricerca della documentazione stessa.
 
 Negli anni ho gradualmente perfezionato un approccio all'archiviazione così struttuato:
@@ -17,14 +17,28 @@ Negli anni ho gradualmente perfezionato un approccio all'archiviazione così str
 Per risalire alla singola pratica, ho sviluppato una semplice applicazione desktop (.NET, Windows Forms) collegata ad un database SQLServer, che permettesse l'inserimento, la modifica e la consultazione dell'archivio.
 Non mi addentrerò nei dettagli di questo software, in quanto saranno quasi del tutto ripresi nella nuova applicazione mobile.
 
-Rimaneva così irrisolto un problema: il recupero dei vecchi documenti era reso scomodo e macchinoso dal fatto che i magazzini si trovano quasi esclusivamente in sedi distaccate dal luogo di lavoro dei commercialisti.
+Rimaneva così irrisolto un problema: il recupero dei vecchi documenti era reso scomodo e macchinoso dal fatto che i magazzini si trovano quasi esclusivamente in sedi distaccate dal luogo di lavoro.
 
 L'utilizzo di un applicativo mobile risponde dunque puntualmente a quest'ultima necessità.
 
 **Casi d'uso**
 
 Lo scenario tipico si presenta come segue:
-  * Vengono inserite nel database dell'archivio le nuove pratiche, nella modalità sopra descritta;
+  * Vengono inserite nel database dell'archivio delle nuove pratiche, nella modalità sopra descritta;
   * L'utente che ha effettuato l'inserimento può segnalare la presenza di nuovi record, che viene notificata all'applicazione mobile;
-  * Vengono sincronizzati i dati tra il server e il client;
+  * Vengono sincronizzati i dati tra server e client;
   * L'utente ha a disposizione l'applicativo pronto per la consultazione dell'archivio, senza doversi interfacciare con il personale dell'ufficio.
+  
+# Utilizzo dell'applicazione
+
+Al primo avvio viene richiesto all'utente di effettuare il login;
+le credenziali di test sono user: SuperAdmin, pass: Penna789:
+
+<p align="center"><img src="screenshot/login_Vert.png" alt="login_Vert" width=30% />
+
+L'utente loggato potrà successivamente accedere all'applicazione senza reinserire le credenziali, in quanto sono salvate sul dispositivo.
+
+Una volta effettuato il login, all'utente si presenterà l'home page con tutte le sue componenti:
+
+<p align="center"><img src="screenshot/homeVuota_Vert.png" alt="login_Vert" width=30% />
+ 
