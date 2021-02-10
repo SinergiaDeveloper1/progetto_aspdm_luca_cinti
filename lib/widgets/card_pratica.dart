@@ -9,6 +9,7 @@ class CardPratica extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      color: Colors.white70,
       elevation: 5,
       margin: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
       child: Padding(
@@ -45,18 +46,6 @@ class CardPratica extends StatelessWidget {
                   ),
                   Row(
                     children: [
-                      Icon(Icons.description_outlined),
-                      const SizedBox(
-                        width: 8,
-                      ),
-                      Text(pratica.attivita),
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 8,
-                  ),
-                  Row(
-                    children: [
                       Icon(pratica.flgPF ? Icons.person : Icons.apartment_sharp,
                           color: pratica.flgPF ? Colors.blue : Colors.green),
                       const SizedBox(
@@ -64,7 +53,19 @@ class CardPratica extends StatelessWidget {
                       ),
                       Text(pratica.nominativo),
                     ],
-                  )
+                  ),
+                  const SizedBox(
+                    height: 8,
+                  ),
+                  Row(
+                    children: [
+                      Icon(Icons.description_outlined),
+                      const SizedBox(
+                        width: 8,
+                      ),
+                      Text(pratica.attivita),
+                    ],
+                  ),
                 ],
               );
             else

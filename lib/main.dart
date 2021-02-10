@@ -57,6 +57,7 @@ class App extends StatelessWidget {
           statoPaginaClienti: context.watch<StatoPaginaClienti>(),
           statoPaginaPratiche: context.watch<StatoPaginaPratiche>(),
           child: MaterialApp(
+            debugShowCheckedModeBanner: false,
             title: 'Gestione Archivio',
             theme: ThemeData.light().copyWith(
               colorScheme: ColorScheme.light(),

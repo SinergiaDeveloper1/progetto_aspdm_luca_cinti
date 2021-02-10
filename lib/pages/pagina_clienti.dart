@@ -38,7 +38,10 @@ class _PaginaClientiState extends State<PaginaClienti> {
                     child: Center(
                       child: Text(
                         'Non sono presenti clienti',
-                        style: Theme.of(context).textTheme.headline6,
+                        style: TextStyle(
+                          fontStyle: FontStyle.italic,
+                          fontSize: 22,
+                        ),
                       ),
                     ),
                     constraints:

@@ -10,6 +10,7 @@ class CardCliente extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      color: Colors.white70,
       elevation: 5,
       margin: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
       child: InkWell(
@@ -33,39 +34,6 @@ class CardCliente extends StatelessWidget {
               trailing: Icon(Icons.arrow_forward),
             ),
           ),
-
-          /*child: Column(
-            children: [
-              Row(
-                children: [
-                  Icon(cliente.flgPF ? Icons.person : Icons.apartment_sharp,
-                      color: cliente.flgPF ? Colors.blue : Colors.green),
-                  const SizedBox(
-                    width: 10,
-                  ),
-                  Text(
-                    cliente.nominativo,
-                    style: TextStyle(fontSize: 15),
-                  )
-                ],
-              ),*/
-
-          /*const SizedBox(
-                height: 8,
-              ),
-              Row(
-                children: [
-                  SizedBox(
-                    width: 34,
-                  ),
-                  if (cliente.partitaIva != null) Text(cliente.partitaIva),
-                  if (cliente.partitaIva != null)
-                    const SizedBox(
-                      width: 20,
-                    ),
-                  if (cliente.codFiscale != null) Text(cliente.codFiscale),
-                ],
-              )*/
         ),
       ),
     );

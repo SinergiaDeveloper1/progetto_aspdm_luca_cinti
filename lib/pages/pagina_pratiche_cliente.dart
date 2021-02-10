@@ -1,7 +1,6 @@
 import 'package:app_luca_cinti/model/cliente.dart';
 import 'package:app_luca_cinti/repository/repository.dart';
 import 'package:app_luca_cinti/states/stato_pagina_pratiche_cliente.dart';
-import 'package:app_luca_cinti/widgets/card_pratica_cliente.dart';
 import 'package:app_luca_cinti/widgets/card_pratica.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -82,7 +81,6 @@ class _PaginaPraticheClienteWidgetState
                     padding: EdgeInsets.symmetric(vertical: 10),
                     itemBuilder: (_, indice) =>
                         CardPratica(value.elencoPratiche[indice]),
-                        //CardPraticaCliente(value.elencoPratiche[indice]),
                     itemCount: value.elencoPratiche.length,
                   ),
                 );
