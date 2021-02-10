@@ -7,14 +7,15 @@
 **Presentazione della problematica e scopo dell'applicazione:**
 
 Quest'applicazione vuole rispondere ad un problema degli studi dei commercialisti, per i quali abbiamo lavorato come consulenti: *la gestione dell'archivio delle pratiche*.
-Ogni commercialista è legalmente tenuto a mantenere per almeno dieci anni uno storico dei lavori svolti per i propri clienti; va da sé come questo comporti l'accumulo di una grande mole di documenti cartacei, che necessariamente ne richiede una catalogazione oculata, nell'ottica di ottimizzare i tempi di ricerca della documentazione stessa.
+
+Ogni commercialista è infatti legalmente tenuto a mantenere per almeno dieci anni uno storico dei lavori svolti per i propri clienti; va da sé come questo comporti l'accumulo di una grande mole di documenti cartacei, che necessariamente ne richiede una catalogazione oculata, nell'ottica di ottimizzare i tempi di ricerca della documentazione stessa.
 
 Negli anni è stato gradualmente perfezionato un approccio all'archiviazione così struttuato:
   * La documentazione viene raggruppata in raccoglitori cartacei, divisi per cliente e tipologia di servizio (ad esempio stesura della contabilità, dichiarazione IVA, ecc...);
   * Ad ognuno di questi raccoglitori viene associato un numero progressivo e l'anno di pertinenza della prestazione professionale;
   * I raccoglitori sono a loro volta raggrupati in faldoni che vengono conservati in un magazzino;
 
-Per risalire alla singola pratica, è stata sviluppata una semplice applicazione desktop (.NET, Windows Forms) collegata ad un database SQLServer, che permettesse l'inserimento, la modifica e la consultazione dell'archivio.
+Per risalire alla singola pratica, è stata sviluppata una semplice applicazione desktop (.NET, Windows Forms) collegata ad un database SQLServer, che permette l'inserimento, la modifica e la consultazione dell'archivio.
 Non ci addentreremo nei dettagli di questo software, in quanto saranno quasi del tutto ripresi nella nuova applicazione mobile.
 
 Rimaneva così irrisolto un problema: il recupero dei vecchi documenti era reso scomodo e macchinoso dal fatto che i magazzini si trovano quasi esclusivamente in sedi distaccate dal luogo di lavoro.
@@ -42,12 +43,12 @@ Una volta effettuato il login, all'utente si presenterà l'home page con tutte l
 
 <p align="center"><img src="screenshot/homeVuota_Vert.png" alt="home vuota" width=30% />
 
-In basso troviamo una BottomNavigationBar dalla quale è possibile navigare tra le due pagine relative alla consultazione delle pratiche e dei clienti.
-In alto si trovano invece l'AppBar con il nome dell'applicazione, una SearchBar nella quale applicare filtri di ricerca tra i record, e un PopupMenuItem dal quale è possibile effettuare il logout e la sincronizzazione dei dati col server.
+In basso troviamo una *BottomNavigationBar* dalla quale è possibile navigare tra le due pagine relative alla consultazione delle pratiche e dei clienti.
+In alto si trovano invece l'*AppBar* con il nome dell'applicazione, una *SearchBar* nella quale applicare filtri di ricerca tra i record, e un *PopupMenuItem* dal quale è possibile effettuare il logout e la sincronizzazione dei dati col server.
 
 <p align="center"><img src="screenshot/appBar.png" alt="app bar" width=50% />
  
-Cliccando su *Aggiorna dati* una *chiamata http* recupererà i dati dal server in formato JSON, andandoli a scrivere localmente sul database sqlite nel dispositivo.
+Cliccando su *Aggiorna dati* una chiamata http recupererà i dati dal server in formato JSON, andandoli a scrivere localmente sul database sqlite nel dispositivo.
 L'interfaccia si presenterà come segue:
 
 <p align="center">
@@ -55,7 +56,7 @@ L'interfaccia si presenterà come segue:
   <img src="screenshot/paginaClienti_Vert.png" alt="pagina clienti" width=30% /> 
 </p>
 
-L'utente potrà a questo punto consultare l'archivio semplicemente scorrendo le due pagine, oppure, molto più comodamente, utilizzando i filtri dedicati, che effettuano la ricerca tra tutti i campi di testo visualizzati a schermo, come possiamo vedere negli esempi:
+L'utente potrà a questo punto consultare l'archivio semplicemente scorrendo le due pagine, oppure, molto più comodamente, utilizzando i filtri dedicati, che effettuano la ricerca tra tutti i campi di testo visualizzati a schermo, come possiamo vedere negli esempi che seguono:
 
 <p align="center">
   <img src="screenshot/ricercaPratiche_Vert.png" alt="pagina pratiche" width=30% />
