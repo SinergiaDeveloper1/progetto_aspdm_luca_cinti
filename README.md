@@ -55,6 +55,9 @@ L'interfaccia si presenterà come segue:
   <img src="screenshot/paginaClienti_Vert.png" alt="pagina clienti" width=30% /> 
 </p>
 
-L'utente potrà a questo punto consultare l'archivio semplicemente scorrendo le due pagine, oppure, molto più comodamente, utilizzando i filtri dedicati, che effettuano la ricerca tra tutti i campi di testo visualizzati a schermo, come possiamo vedere nell'esempio:
+L'utente potrà a questo punto consultare l'archivio semplicemente scorrendo le due pagine, oppure, molto più comodamente, utilizzando i filtri dedicati, che effettuano la ricerca tra tutti i campi di testo visualizzati a schermo, come possiamo vedere negli esempi:
 
-<p align="center"><img src="screenshot/homeVuota_Vert.png" alt="home vuota" width=30% />
+<p align="center">
+  <img src="screenshot/ricercaPratiche_Vert.png" alt="pagina pratiche" width=30% />
+  <img src="screenshot/ricercaClienti_Vert.png" alt="pagina clienti" width=30% /> 
+</p>
