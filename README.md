@@ -101,9 +101,11 @@ Ad integrazione del progetto sono state utilizzate le seguenti librerie aggiunti
   
   
   * loading_overlay: ^0.2.1
+  
   Permette di visualizzare un'immagine di caricamento nelle fasi di attesa o sincronizzazione dei dati.
   
   * sqflite: ^1.3.2+1
+  
   Permette la creazione e l'utilizzo di un database sqlite interno al dispositivo, con le classiche operazioni CRUD e la possiblità di usare Batch.
   
   * shared_preferences: ^0.5.12+4
