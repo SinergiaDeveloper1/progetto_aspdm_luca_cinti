@@ -4,7 +4,7 @@
 
 # Gestione Archivio
 
-**Presentazione della problematica e scopo dell'applicazione**
+**Presentazione della problematica e scopo dell'applicazione:**
 
 Quest'applicazione vuole rispondere ad un problema degli studi dei commercialisti, per i quali abbiamo lavorato come consulenti: *la gestione dell'archivio delle pratiche*.
 Ogni commercialista è legalmente tenuto a mantenere per almeno dieci anni uno storico dei lavori svolti per i propri clienti; va da sé come questo comporti l'accumulo di una grande mole di documenti cartacei, che necessariamente ne richiede una catalogazione oculata, nell'ottica di ottimizzare i tempi di ricerca della documentazione stessa.
@@ -21,7 +21,7 @@ Rimaneva così irrisolto un problema: il recupero dei vecchi documenti era reso 
 
 L'utilizzo di un applicativo mobile risponde dunque puntualmente a quest'ultima necessità.
 
-**Casi d'uso**
+**Casi d'uso:**
 
 Lo scenario tipico si presenta come segue:
   * Vengono inserite nel database dell'archivio delle nuove pratiche, nella modalità sopra descritta;
