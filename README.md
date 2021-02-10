@@ -99,19 +99,10 @@ Ad integrazione del progetto sono state utilizzate le seguenti librerie aggiunti
 
   * [provider](https://pub.dev/packages/provider) Un *wrapper* attorno agli *InheritedWidget* per renderli più semplici da utilizzare e riutilizzabili.
   * [loading_overlay](https://pub.dev/packages/loading_overlay) Un indicatore di avanzamento *modale* che scompare alla terminazione della chiamata asincrona. Se *wrappato* attorno ad un altro widget, ne blocca l'utilizzo fino al termine del caricamento.
-  * [sqflite](https://pub.dev/packages/sqflite) 
-  * [shared_preferences](https://pub.dev/packages/shared_preferences) 
-  * [equatable](https://pub.dev/packages/equatable) 
-  * [flutter_search_bar](https://pub.dev/packages/flutter_search_bar) 
-  * [http](https://pub.dev/packages/http) 
-  * [firebase_core](https://pub.dev/packages/firebase_core) 
-  * [firebase_messaging](https://pub.dev/packages/firebase_messaging)
-  
-  * **loading_overlay: ^0.2.1:** Permette di visualizzare un'immagine di caricamento nelle fasi di attesa o sincronizzazione dei dati.
-  
-  * **sqflite: ^1.3.2+1:** Permette la creazione e l'utilizzo di un database sqlite interno al dispositivo, con le classiche operazioni CRUD e la possiblità di usare Batch.
-  
-  * shared_preferences: ^0.5.12+4
-  
-  * **equatable: ^1.2.5:** Estende le operazioni di confronto tra oggetti.
-
+  * [sqflite](https://pub.dev/packages/sqflite) Permette la creazione e l'utilizzo di un database SQL interno al dispositivo, con le classiche operazioni *CRUD* e la possiblità di usare *Batch*.
+  * [shared_preferences](https://pub.dev/packages/shared_preferences) Plugin Flutter per la lettura e scrittura di credenziali.
+  * [equatable](https://pub.dev/packages/equatable) Una classe *abstract* che permette il confronto tra oggetti, senza dover esplicitamente fare l'*override* dell'operatore *==*
+  * [flutter_search_bar](https://pub.dev/packages/flutter_search_bar) un *Widget* che permette la ricerca in Flutter, integrato all'interno dell'AppBar.
+  * [http](https://pub.dev/packages/http) *API* multipiattaforma che consente chiamate HTTP.
+  * [firebase_core](https://pub.dev/packages/firebase_core) permette l'integrazione con applicazioni *Firebase*.
+  * [firebase_messaging](https://pub.dev/packages/firebase_messaging) permette l'invio e, nel caso specifico, la ricezione di notifiche attraverso i dispositivi.
