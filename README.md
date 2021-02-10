@@ -61,3 +61,5 @@ L'utente potrà a questo punto consultare l'archivio semplicemente scorrendo le 
   <img src="screenshot/ricercaPratiche_Vert.png" alt="pagina pratiche" width=30% />
   <img src="screenshot/ricercaClienti_Vert.png" alt="pagina clienti" width=30% /> 
 </p>
+
+Come si può vedere dall'immagine di destra, quando si è in visualizzazione filtrata compare l'icona del filtro che, se cliccata, cancella i filtri presenti restituendo la visualizzazione originale.
