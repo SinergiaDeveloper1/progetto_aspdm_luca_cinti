@@ -6,6 +6,7 @@ import 'package:app_luca_cinti/states/stato_pagina_pratiche.dart';
 import 'package:app_luca_cinti/states/stato_refresh.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_search_bar/flutter_search_bar.dart';
+import 'package:loading_overlay/loading_overlay.dart';
 import 'package:provider/provider.dart';
 
 class MainPage extends StatefulWidget {
@@ -79,8 +80,7 @@ class _MainPageState extends State<MainPage> {
             onSelected: (value) {
               if (value == 'Logout') {
                 context.read<StatoLogin>().logout();
-              }
-              else if (value == 'Aggiorna') {
+              } else if (value == 'Aggiorna') {
                 context.read<StatoRefresh>().aggiornaDB();
               }
             },
@@ -94,12 +94,18 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: searchBar.build(context),
-      body: IndexedStack(
-        children: [
-          PaginaPratiche(),
-          PaginaClienti(),
-        ],
-        index: _indicePagina,
+      body: Selector<StatoRefresh, bool>(
+        selector: (_, stato) => stato.staCaricando,
+        builder: (context, value, child) => LoadingOverlay(
+          isLoading: value,
+          child: IndexedStack(
+            children: [
+              PaginaPratiche(),
+              PaginaClienti(),
+            ],
+            index: _indicePagina,
+          ),
+        ),
       ),
       bottomNavigationBar: BottomNavigationBar(
         onTap: (nuovoIndice) {

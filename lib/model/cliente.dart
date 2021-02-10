@@ -25,4 +25,15 @@ class Cliente extends Equatable {
       mappa['P_IVA'],
       mappa['COD_FISCALE']);
 
+  factory Cliente.daJson(Map<String, dynamic> mappa) => Cliente(
+      mappa['idCliente'],
+      mappa['flgPF'],
+      mappa['nominativo'],
+      mappa['partitaIva'],
+      mappa['codFiscale']);
+
+  @override
+  String toString() {
+    return 'Cliente{idCliente: $idCliente, flgPF: $flgPF, nominativo: $nominativo, partitaIva: $partitaIva, codFiscale: $codFiscale}';
+  }
 }

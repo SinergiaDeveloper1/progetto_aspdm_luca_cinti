@@ -8,11 +8,15 @@ import 'package:app_luca_cinti/states/stato_login.dart';
 import 'package:app_luca_cinti/states/stato_pagina_clienti.dart';
 import 'package:app_luca_cinti/states/stato_pagina_pratiche.dart';
 import 'package:app_luca_cinti/states/stato_refresh.dart';
+import 'package:app_luca_cinti/widgets/gestore_notifiche.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  await Firebase.initializeApp();
 
   final statoLogin = StatoLogin();
   await statoLogin.init();
@@ -46,17 +50,22 @@ class App extends StatelessWidget {
           create: (context) => StatoRefresh(repos),
         ),
       ],
-      child: MaterialApp(
-        title: 'Gestione Archivio',
-        theme: ThemeData.light().copyWith(
-          colorScheme: ColorScheme.light(),
-          primaryColor: Color.fromARGB(255, 139, 0, 0),
+      child: Builder(
+        builder: (context) => GestoreNotifiche(
+          statoRefresh: context.watch<StatoRefresh>(),
+          child: MaterialApp(
+            title: 'Gestione Archivio',
+            theme: ThemeData.light().copyWith(
+              colorScheme: ColorScheme.light(),
+              primaryColor: Color.fromARGB(255, 139, 0, 0),
+            ),
+            routes: {
+              '/': (_) => Ingresso(),
+              '/pratiche_cliente': (_) => PaginaPraticheCliente(),
+            },
+            initialRoute: '/',
+          ),
         ),
-        routes: {
-          '/': (_) => Ingresso(),
-          '/pratiche_cliente': (_) => PaginaPraticheCliente(),
-        },
-        initialRoute: '/',
       ),
     );
   }

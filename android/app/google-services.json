@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1094006038752",
+    "project_id": "gestionearchivio-870b6",
+    "storage_bucket": "gestionearchivio-870b6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1094006038752:android:063d2639802f28958cb085",
+        "android_client_info": {
+          "package_name": "com.lucacinti.app_luca_cinti"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1094006038752-rpnb1j644nbiop969t7qca3h5kqvhbms.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCLZr8Tj7uqfxigGDNl0-WjcEUzHFCHrto"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1094006038752-rpnb1j644nbiop969t7qca3h5kqvhbms.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

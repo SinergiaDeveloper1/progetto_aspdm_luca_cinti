@@ -50,8 +50,11 @@ class Repository {
   }
 
   Future<void> aggiornaDB() async {
-    //TODO
+
     final clienti = await getClientiAPI();
-    await _database.aggiornaDB(clienti);
+    final pratiche = await getPraticheAPI();
+
+    await _database.aggiornaDB(clienti, pratiche);
+
   }
 }

@@ -28,4 +28,16 @@ class Pratica extends Equatable {
       mappa['DES_ATTIVITA'],
       mappa['NOMINATIVO']);
 
+  factory Pratica.daJson(Map<String, dynamic> mappa) => Pratica(
+      mappa['idPratica'],
+      mappa['flgPF'],
+      mappa['anno'],
+      mappa['progressivo'],
+      mappa['attivita'],
+      mappa['nominativo']);
+
+  @override
+  String toString() {
+    return 'Pratica{idPratica: $idPratica, flgPF: $flgPF, anno: $anno, progressivo: $progressivo, attivita: $attivita, nominativo: $nominativo}';
+  }
 }
