@@ -23,8 +23,6 @@ class StatoPaginaPraticheCliente extends ChangeNotifier {
 
     try {
       elencoPratiche = await _repository.getPraticheCliente(nominativo);
-
-      //await Future.delayed(Duration(seconds: 3));
     } catch (e) {
       errore = true;
     } finally {

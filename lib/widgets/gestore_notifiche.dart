@@ -1,4 +1,6 @@
 import 'dart:async';
+import 'package:app_luca_cinti/states/stato_pagina_clienti.dart';
+import 'package:app_luca_cinti/states/stato_pagina_pratiche.dart';
 import 'package:app_luca_cinti/states/stato_refresh.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
@@ -6,10 +8,14 @@ import 'package:flutter/material.dart';
 class GestoreNotifiche extends StatefulWidget {
   final Widget child;
   final StatoRefresh statoRefresh;
+  final StatoPaginaClienti statoPaginaClienti;
+  final StatoPaginaPratiche statoPaginaPratiche;
 
   GestoreNotifiche({
     this.child,
     this.statoRefresh,
+    this.statoPaginaClienti,
+    this.statoPaginaPratiche,
   });
 
   @override
@@ -56,5 +62,7 @@ class _GestoreNotificheState extends State<GestoreNotifiche> {
 
   Future<void> gestisciNotifiche(RemoteMessage message) async {
     await widget.statoRefresh.aggiornaDB();
+    await widget.statoPaginaClienti.getClienti();
+    await widget.statoPaginaPratiche.getPratiche();
   }
 }

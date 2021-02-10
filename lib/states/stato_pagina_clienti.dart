@@ -19,7 +19,6 @@ class StatoPaginaClienti extends ChangeNotifier {
 
     try {
       datiClienti = await _repository.getClienti(filtro);
-      //await Future.delayed(Duration(seconds: 3));
     } catch (e) {
       errore = true;
     } finally {

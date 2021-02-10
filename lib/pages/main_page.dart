@@ -77,11 +77,13 @@ class _MainPageState extends State<MainPage> {
                 value: 'Logout',
               ),
             ],
-            onSelected: (value) {
+            onSelected: (value) async {
               if (value == 'Logout') {
                 context.read<StatoLogin>().logout();
               } else if (value == 'Aggiorna') {
-                context.read<StatoRefresh>().aggiornaDB();
+                await context.read<StatoRefresh>().aggiornaDB();
+                await context.read<StatoPaginaClienti>().getClienti();
+                await context.read<StatoPaginaPratiche>().getPratiche();
               }
             },
           ),
