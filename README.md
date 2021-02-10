@@ -95,14 +95,14 @@ Come nota a margine facciamo osservare che è stato scelto di non permettere mod
 
 # Tecnologia
 
-Ad integrazione del progetto sono state utilizzate le seguenti librerie aggiuntive, integrate dal portale https://pub.dev/
+Ad integrazione del progetto sono state utilizzate le seguenti librerie aggiuntive, ottenute dal portale https://pub.dev/
 
-  * [provider](https://pub.dev/packages/provider) Un *wrapper* attorno agli *InheritedWidget* per renderli più semplici da utilizzare e riutilizzabili.
-  * [loading_overlay](https://pub.dev/packages/loading_overlay) Un indicatore di avanzamento *modale* che scompare alla terminazione della chiamata asincrona. Se *wrappato* attorno ad un altro widget, ne blocca l'utilizzo fino al termine del caricamento.
+  * [provider](https://pub.dev/packages/provider) Un *wrapper* attorno agli *InheritedWidget* per renderli più semplici da usare e riutilizzare.
+  * [loading_overlay](https://pub.dev/packages/loading_overlay) Un indicatore di avanzamento *modale* che scompare alla terminazione della chiamata asincrona. Se *wrappato* attorno ad un altro *widget*, ne blocca l'utilizzo fino al termine del caricamento.
   * [sqflite](https://pub.dev/packages/sqflite) Permette la creazione e l'utilizzo di un database SQL interno al dispositivo, con le classiche operazioni *CRUD* e la possiblità di usare *Batch*.
   * [shared_preferences](https://pub.dev/packages/shared_preferences) Plugin Flutter per la lettura e scrittura di credenziali.
   * [equatable](https://pub.dev/packages/equatable) Una classe *abstract* che permette il confronto tra oggetti, senza dover esplicitamente fare l'*override* dell'operatore *==*
   * [flutter_search_bar](https://pub.dev/packages/flutter_search_bar) un *Widget* che permette la ricerca in Flutter, integrato all'interno dell'AppBar.
   * [http](https://pub.dev/packages/http) *API* multipiattaforma che consente chiamate HTTP.
-  * [firebase_core](https://pub.dev/packages/firebase_core) permette l'integrazione con applicazioni *Firebase*.
-  * [firebase_messaging](https://pub.dev/packages/firebase_messaging) permette l'invio e, nel caso specifico, la ricezione di notifiche attraverso i dispositivi.
+  * [firebase_core](https://pub.dev/packages/firebase_core) libreria che permette l'integrazione con applicazioni *Firebase*.
+  * [firebase_messaging](https://pub.dev/packages/firebase_messaging) Pacchetto che, se associato al precedente, permette l'invio e la ricezione di notifiche attraverso i dispositivi.
