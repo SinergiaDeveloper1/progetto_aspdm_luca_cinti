@@ -31,5 +31,14 @@ Lo scenario tipico si presenta come segue:
   
 # Utilizzo dell'applicazione
 
-Al primo avvio viene richiesto all'utente di effettuare il login (le credenziali di test sono user: SuperAdmin, pass: Penna789):
-<p align="center"><img src="screenshot/login_Vert.png" alt="login_Vert" width=200/>
+Al primo avvio viene richiesto all'utente di effettuare il login;
+le credenziali di test sono user: SuperAdmin, pass: Penna789:
+
+<p align="center"><img src="screenshot/login_Vert.png" alt="login_Vert" width=30% />
+
+L'utente loggato potrà successivamente accedere all'applicazione senza reinserire le credenziali, in quanto sono salvate sul dispositivo.
+
+Una volta effettuato il login, all'utente si presenterà l'home page con tutte le sue componenti:
+
+<p align="center"><img src="screenshot/homeVuota_Vert.png" alt="login_Vert" width=30% />
+ 
