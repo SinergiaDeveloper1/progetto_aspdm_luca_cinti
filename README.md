@@ -22,3 +22,9 @@ Rimaneva così irrisolto un problema: il recupero dei vecchi documenti era reso 
 L'utilizzo di un applicativo mobile risponde dunque puntualmente a quest'ultima necessità.
 
 **Casi d'uso**
+
+Lo scenario tipico si presenta come segue:
+  * Vengono inserite nel database dell'archivio le nuove pratiche, nella modalità sopra descritta;
+  * L'utente che ha effettuato l'inserimento può segnalare la presenza di nuovi record, che viene notificata all'applicazione mobile;
+  * Vengono sincronizzati i dati tra il server e il client;
+  * L'utente ha a disposizione l'applicativo pronto per la consultazione dell'archivio, senza doversi interfacciare con il personale dell'ufficio.
