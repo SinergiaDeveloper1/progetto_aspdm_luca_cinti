@@ -6,7 +6,7 @@
 
 **Presentazione della problematica e scopo dell'applicazione**
 
-Quest'applicazione vuole rispondere ad un problema, che ci è capitato più volte di affrontare, degli studi dei commercialisti per i quali abbiamo lavorato come consulenti: *la gestione dell'archivio delle pratiche*.
+Quest'applicazione vuole rispondere ad un problema degli studi dei commercialisti, per i quali abbiamo lavorato come consulenti: *la gestione dell'archivio delle pratiche*.
 Ogni commercialista è legalmente tenuto a mantenere per almeno dieci anni uno storico dei lavori svolti per i propri clienti; va da sé come questo comporti l'accumulo di una grande mole di documenti cartacei, che necessariamente ne richiede una catalogazione oculata, nell'ottica di ottimizzare i tempi di ricerca della documentazione stessa.
 
 Negli anni è stato gradualmente perfezionato un approccio all'archiviazione così struttuato:
@@ -97,8 +97,8 @@ Come nota a margine facciamo osservare che è stato scelto di non permettere mod
 
 Ad integrazione del progetto sono state utilizzate le seguenti librerie aggiuntive, integrate dal portale https://pub.dev/
 
-  * [provider](https://pub.dev/packages/provider) 
-  * [loading_overlay](https://pub.dev/packages/loading_overlay) 
+  * [provider](https://pub.dev/packages/provider) Un *wrapper* attorno agli *InheritedWidget* per renderli più semplici da utilizzare e riutilizzabili.
+  * [loading_overlay](https://pub.dev/packages/loading_overlay) Un indicatore di avanzamento *modale* che scompare alla terminazione della chiamata asincrona. Se *wrappato* attorno ad un altro widget, ne blocca l'utilizzo fino al termine del caricamento.
   * [sqflite](https://pub.dev/packages/sqflite) 
   * [shared_preferences](https://pub.dev/packages/shared_preferences) 
   * [equatable](https://pub.dev/packages/equatable) 
