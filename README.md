@@ -97,16 +97,21 @@ Come nota a margine facciamo osservare che è stato scelto di non permettere mod
 
 Ad integrazione del progetto sono state utilizzate le seguenti librerie aggiuntive, integrate dal portale https://pub.dev/
 
-  * provider: ^4.3.2+3
-  
+  * [provider](https://pub.dev/packages/provider) 
+  * [loading_overlay](https://pub.dev/packages/loading_overlay) 
+  * [sqflite](https://pub.dev/packages/sqflite) 
+  * [shared_preferences](https://pub.dev/packages/shared_preferences) 
+  * [equatable](https://pub.dev/packages/equatable) 
+  * [flutter_search_bar](https://pub.dev/packages/flutter_search_bar) 
+  * [http](https://pub.dev/packages/http) 
+  * [firebase_core](https://pub.dev/packages/firebase_core) 
+  * [firebase_messaging](https://pub.dev/packages/firebase_messaging)
   
   * **loading_overlay: ^0.2.1:** Permette di visualizzare un'immagine di caricamento nelle fasi di attesa o sincronizzazione dei dati.
   
   * **sqflite: ^1.3.2+1:** Permette la creazione e l'utilizzo di un database sqlite interno al dispositivo, con le classiche operazioni CRUD e la possiblità di usare Batch.
   
   * shared_preferences: ^0.5.12+4
-  * equatable: ^1.2.5
-  * flutter_search_bar: ^2.1.0
-  * http: ^0.12.2
-  * firebase_core: ^0.7.0
-  * firebase_messaging: ^8.0.0-dev.14
+  
+  * **equatable: ^1.2.5:** Estende le operazioni di confronto tra oggetti.
+
