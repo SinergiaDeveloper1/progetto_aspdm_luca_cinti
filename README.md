@@ -1,4 +1,4 @@
-<p align="center"><img src="assets/sfondoLogin.png" alt="Gestione Archivio Logo" width=320/></p>
+<p align="center"><img src="assets/sfondoLogin.png" alt="Gestione Archivio Logo" width=100% height=120/></p>
 
 **Luca Cinti, 305772**
 
@@ -31,4 +31,5 @@ Lo scenario tipico si presenta come segue:
   
 # Utilizzo dell'applicazione
 
-
+Al primo avvio viene richiesto all'utente di effettuare il login (le credenziali di test sono user: SuperAdmin, pass: Penna789):
+<p align="center"><img src="screenshot/login_Vert.png" alt="login_Vert" width=200/>
