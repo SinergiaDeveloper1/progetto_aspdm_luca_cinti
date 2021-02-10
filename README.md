@@ -78,3 +78,9 @@ Ogniqualvolta verranno inseriti dei nuovi record, o effettuate modifiche ai dati
 </p>
 
 A sinistra possiamo vedere la ricezione della notifica, mentre a destra l'interfaccia durante l'aggiornamento dei dati.
+
+È possibile ovviamente utilizzare l'applicazione sia in portrait che in landscape mode: le interfacce sono modificate per meglio adattarsi alle due modalità:
+
+<p align="center"><img src="screenshot/login_Oriz.png" alt="login orizzontale" width=70% />
+<p align="center"><img src="screenshot/paginaPratiche_Oriz.png" alt="pagina pratiche orizzontale" width=70% />
+
