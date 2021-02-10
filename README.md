@@ -63,3 +63,18 @@ L'utente potrà a questo punto consultare l'archivio semplicemente scorrendo le 
 </p>
 
 Come si può vedere dall'immagine di destra, quando si è in visualizzazione filtrata compare l'icona del filtro che, se cliccata, cancella i filtri presenti restituendo la visualizzazione originale.
+
+Tra le funzionalità più utili dell'applicativo, vi è la possibilità di risalire allo storico di tutte le pratiche relative ad un cliente, semplicemente cliccando sulla relativa card:
+
+<p align="center"><img src="screenshot/paginaStoricoPratiche_Vert.png" alt="storico pratiche" width=30% />
+ 
+**Aggiornamento dei dati**
+
+Ogniqualvolta verranno inseriti dei nuovi record, o effettuate modifiche ai dati nell'applicativo desktop, l'utente avrà facoltà di inviare una notifica a tutti i dispositivi in cui è installata l'applicazione mobile. Al click sulla notifica in automatico i dati verranno sincronizzati in modalità DELETE-INSERT, ovvero cancellando tutti i dati del database locale, e inserendo i nuovi record.
+
+<p align="center">
+  <img src="screenshot/notificaSincronizzazione.png" alt="notifica" width=30% />
+  <img src="screenshot/sincronizzazioneDati.png" alt="sincronizzazione dati" width=30% /> 
+</p>
+
+A sinistra possiamo vedere la ricezione della notifica, mentre a destra l'interfaccia durante l'aggiornamento dei dati.
