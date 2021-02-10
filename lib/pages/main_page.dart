@@ -95,7 +95,10 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: searchBar.build(context),
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(50.0),
+        child: searchBar.build(context),
+      ),
       body: Selector<StatoRefresh, bool>(
         selector: (_, stato) => stato.staCaricando,
         builder: (context, value, child) => LoadingOverlay(
@@ -109,26 +112,29 @@ class _MainPageState extends State<MainPage> {
           ),
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        onTap: (nuovoIndice) {
-          setState(() {
-            _indicePagina = nuovoIndice;
-          });
-        },
-        currentIndex: _indicePagina,
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.list_alt_sharp),
-            label: 'Storico Pratiche',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.people_alt_sharp),
-            label: 'Anagrafica clienti',
-          ),
-        ],
-        //type: BottomNavigationBarType.shifting,
-        backgroundColor: Color.fromARGB(255, 139, 0, 0),
-        fixedColor: Colors.white,
+      bottomNavigationBar: SizedBox(
+        height: 58,
+        child: BottomNavigationBar(
+          onTap: (nuovoIndice) {
+            setState(() {
+              _indicePagina = nuovoIndice;
+            });
+          },
+          currentIndex: _indicePagina,
+          items: [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.list_alt_sharp),
+              label: 'Storico Pratiche',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.people_alt_sharp),
+              label: 'Anagrafica clienti',
+            ),
+          ],
+          //type: BottomNavigationBarType.shifting,
+          backgroundColor: Color.fromARGB(255, 139, 0, 0),
+          fixedColor: Colors.white,
+        ),
       ),
     );
   }
