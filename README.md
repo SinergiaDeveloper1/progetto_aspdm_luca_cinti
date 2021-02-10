@@ -81,6 +81,12 @@ A sinistra possiamo vedere la ricezione della notifica, mentre a destra l'interf
 
 È possibile ovviamente utilizzare l'applicazione sia in portrait che in landscape mode: le interfacce sono modificate per meglio adattarsi alle due modalità:
 
-<p align="center"><img src="screenshot/login_Oriz.png" alt="login orizzontale" width=70% />
-<p align="center"><img src="screenshot/paginaPratiche_Oriz.png" alt="pagina pratiche orizzontale" width=70% />
+<p align="center"><img src="screenshot/login_Oriz.png" alt="login orizzontale" width=65% />
+<p align="center"><img src="screenshot/paginaPratiche_Oriz.png" alt="pagina pratiche orizzontale" width=65% />
 
+# Cenni sul modello dati
+
+Per semplificare e snellire il funzionamento dell'applicativo mobile, i dati con esso sincronizzati sono esportati a partire da due semplici *viste* sul database di produzione.
+Il modello dati è (molto grossolanamente) riportato nell'immagine che segue:
+
+<p align="center"><img src="screenshot/modelloDati.png" alt="modello dati" width=70% />
