@@ -6,7 +6,7 @@
 
 **Presentazione della problematica e scopo dell'applicazione:**
 
-Quest'applicazione vuole rispondere ad un problema degli studi dei commercialisti, per i quali abbiamo lavorato come consulenti: *la gestione dell'archivio delle pratiche*.
+Quest'applicazione vuole rispondere ad un problema degli studi dei commercialisti: *la gestione dell'archivio delle pratiche*.
 
 Ogni commercialista è infatti legalmente tenuto a mantenere per almeno dieci anni uno storico dei lavori svolti per i propri clienti; va da sé come questo comporti l'accumulo di una grande mole di documenti cartacei, che necessariamente ne richiede una catalogazione oculata, nell'ottica di ottimizzare i tempi di ricerca della documentazione stessa.
 
