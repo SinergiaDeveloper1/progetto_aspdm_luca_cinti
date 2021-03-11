@@ -24,14 +24,22 @@ void main() async {
   final db = DatabaseInterno();
   await db.init();
 
-  runApp(App(statoLogin, Repository(db)));
+  runApp(
+    App(
+      statoLogin,
+      Repository(db),
+    ),
+  );
 }
 
 class App extends StatelessWidget {
   final statoLogin;
   final repos;
 
-  App(this.statoLogin, this.repos);
+  App(
+    this.statoLogin,
+    this.repos,
+  );
 
   @override
   Widget build(BuildContext context) {

@@ -1,4 +1,3 @@
-import 'package:app_luca_cinti/model/pratica.dart';
 import 'package:app_luca_cinti/states/stato_pagina_pratiche.dart';
 import 'package:app_luca_cinti/widgets/card_pratica.dart';
 import 'package:flutter/material.dart';

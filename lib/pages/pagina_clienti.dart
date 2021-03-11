@@ -44,8 +44,9 @@ class _PaginaClientiState extends State<PaginaClienti> {
                         ),
                       ),
                     ),
-                    constraints:
-                        BoxConstraints(minHeight: constraints.maxHeight),
+                    constraints: BoxConstraints(
+                      minHeight: constraints.maxHeight,
+                    ),
                   ),
                   physics: AlwaysScrollableScrollPhysics(),
                 );

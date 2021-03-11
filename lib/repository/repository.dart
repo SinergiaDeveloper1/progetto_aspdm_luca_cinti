@@ -1,12 +1,13 @@
 import 'package:app_luca_cinti/database/database.dart';
 import 'package:app_luca_cinti/model/cliente.dart';
 import 'package:app_luca_cinti/model/pratica.dart';
-import 'package:flutter/material.dart';
 import 'package:app_luca_cinti/database/api_remote.dart';
 
 extension StringContains on String {
   bool containsCaseIns(String daComparare) {
-    return this.toLowerCase().contains(daComparare?.toLowerCase());
+    return this.toLowerCase().contains(
+          daComparare?.toLowerCase(),
+        );
   }
 }
 
@@ -50,11 +51,9 @@ class Repository {
   }
 
   Future<void> aggiornaDB() async {
-
     final clienti = await getClientiAPI();
     final pratiche = await getPraticheAPI();
 
     await _database.aggiornaDB(clienti, pratiche);
-
   }
 }

@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "1094006038752",
+    "firebase_url": "https://gestionearchivio-870b6-default-rtdb.europe-west1.firebasedatabase.app",
     "project_id": "gestionearchivio-870b6",
     "storage_bucket": "gestionearchivio-870b6.appspot.com"
   },
@@ -13,6 +14,14 @@
         }
       },
       "oauth_client": [
+        {
+          "client_id": "1094006038752-ktqpvsnrocps8itivd6auqpig9vn56up.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.lucacinti.app_luca_cinti",
+            "certificate_hash": "52dc0c2ddb1ab5fdc72a542d2ed54ac2569f4857"
+          }
+        },
         {
           "client_id": "1094006038752-rpnb1j644nbiop969t7qca3h5kqvhbms.apps.googleusercontent.com",
           "client_type": 3
